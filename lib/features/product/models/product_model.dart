@@ -3,13 +3,18 @@ import 'package:json_annotation/json_annotation.dart';
 part 'product_model.g.dart';
 @JsonSerializable()
 class ProductModel {
-  final String id;
+  @JsonKey(defaultValue: 0)
+  final int id;
+  @JsonKey(defaultValue: '')
   final String title;
+  @JsonKey(defaultValue: 0)
   final double price;
+  @JsonKey(defaultValue: '')
   final String description;
+  @JsonKey(defaultValue: '')
   final String category;
+  @JsonKey(defaultValue: '')
   final String imageUrl;
-
   final Rating rating;
 
   ProductModel({

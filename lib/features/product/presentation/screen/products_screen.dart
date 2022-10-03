@@ -9,7 +9,7 @@ class ProductsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final productController=Get.put(ProductController());
-    final products=productController.productList;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text("Products"),
@@ -21,11 +21,11 @@ class ProductsScreen extends StatelessWidget {
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return ListView.builder(
-              itemCount: products.length,
+              itemCount: productController.productList.length,
               itemBuilder: (context, index) {
                 return ListTile(
-                  title: Text(products[index].title),
-                  subtitle: Text(products[index].description),
+                  title: Text(productController.productList[index].title),
+                  subtitle: Text(productController.productList[index].description),
                 );
               },
             );

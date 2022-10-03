@@ -23,6 +23,7 @@ dependencies:
   get: ^4.6.5
   json_annotation:
   dio:
+  logger:
 
 dev_dependencies:
   flutter_test:
