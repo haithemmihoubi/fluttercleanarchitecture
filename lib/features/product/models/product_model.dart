@@ -1,4 +1,4 @@
-import 'package:cleanarchitecture/features/product/data/models/rating_model.dart';
+import 'package:cleanarchitecture/features/product/models/rating_model.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'product_model.g.dart';
 @JsonSerializable()

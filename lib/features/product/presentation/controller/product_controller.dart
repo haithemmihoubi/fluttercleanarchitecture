@@ -1,9 +1,10 @@
 import 'package:cleanarchitecture/core/utils/constants/constants.dart';
-import 'package:cleanarchitecture/features/product/data/models/product_model.dart';
 import 'package:cleanarchitecture/networking/dio_client.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+
+import '../../models/product_model.dart';
 
 class ProductController extends GetxController {
   final productList = <ProductModel>[].obs;
