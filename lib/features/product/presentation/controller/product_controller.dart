@@ -8,6 +8,9 @@ import 'package:logger/logger.dart';
 import '../../models/product_model.dart';
 
 class ProductController extends GetxController {
+  // static
+  static ProductController get to => Get.find();
+
   final productList = <ProductModel>[].obs;
   DioClient dioClient = DioClient();
   // intialize the logger

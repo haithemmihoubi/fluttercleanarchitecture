@@ -1,15 +1,28 @@
 import 'package:cleanarchitecture/features/product/presentation/controller/product_controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
+import 'package:logger/logger.dart';
 
-class ProductsScreen extends StatelessWidget {
+import '../widget/product_widget.dart';
+
+class ProductsScreen extends StatefulWidget {
   const ProductsScreen({Key? key}) : super(key: key);
+
+  @override
+  State<ProductsScreen> createState() => _ProductsScreenState();
+}
+
+class _ProductsScreenState extends State<ProductsScreen> {
+
+
+
 
   @override
   Widget build(BuildContext context) {
     final productController=Get.put(ProductController());
-
+Logger logger=Logger();
     return Scaffold(
       appBar: AppBar(
         title: const Text("Products"),
@@ -22,11 +35,9 @@ class ProductsScreen extends StatelessWidget {
           if (snapshot.hasData) {
             return ListView.builder(
               itemCount: productController.productList.length,
+
               itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text(productController.productList[index].title),
-                  subtitle: Text(productController.productList[index].description),
-                );
+                return ProductWidget(productModel: productController.productList[index],);
               },
             );
 
@@ -36,6 +47,8 @@ class ProductsScreen extends StatelessWidget {
           return const CircularProgressIndicator();
         },
       ),
+
     );
   }
 }
+// you can initilaize to true

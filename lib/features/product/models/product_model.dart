@@ -13,8 +13,7 @@ class ProductModel {
   final String description;
   @JsonKey(defaultValue: '')
   final String category;
-  @JsonKey(defaultValue: '')
-  final String imageUrl;
+  final String image;
   final Rating rating;
 
   ProductModel({
@@ -23,7 +22,7 @@ class ProductModel {
     required this.price,
     required this.description,
     required this.category,
-    required this.imageUrl,
+    required this.image,
     required this.rating,
   });
 
