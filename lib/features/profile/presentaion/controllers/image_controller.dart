@@ -95,6 +95,9 @@ void uploadImage() async {
     await UploadImages().then((resp) {
       Get.back();
       Get.snackbar('Success', 'Images uploaded successfully',snackPosition: SnackPosition.TOP,backgroundColor: Colors.green);
+      images.clear();
+      ListImagePath.clear();
+      selectedFileCount.value = 0;
     }).catchError((e) {
       Get.back();
       Get.snackbar('Sorry', 'Something went wrong',snackPosition: SnackPosition.TOP,backgroundColor: Colors.red);
