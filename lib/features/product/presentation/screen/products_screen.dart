@@ -29,23 +29,55 @@ Logger logger=Logger();
         centerTitle: true,
 
       ),
-      body: FutureBuilder(
-        future: productController.getAllProducts(),
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            return ListView.builder(
-              itemCount: productController.productList.length,
+      body: Column(
+        children: [
+          Container(
+            height: 100,
+            child:  FutureBuilder(
+                  future: productController.getAllCategories(),
 
-              itemBuilder: (context, index) {
-                return ProductWidget(productModel: productController.productList[index],);
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      return ListView.builder(
+                        itemCount: productController.categories.length,
+                        itemBuilder: (context, index) {
+                          return Text(productController.categories[index].toString());
+                        },
+                      );
+                    } else {
+                      return const Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    }
+                  },
+                )
+
+
+          ),
+
+          Container(
+
+            height: 500,
+            child: FutureBuilder(
+              future: productController.getAllProducts(),
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  return ListView.builder(
+                    itemCount: productController.productList.length,
+
+                    itemBuilder: (context, index) {
+                      return ProductWidget(productModel: productController.productList[index],);
+                    },
+                  );
+
+                } else if (snapshot.hasError) {
+                  return Text("${snapshot.error}");
+                }
+                return const CircularProgressIndicator();
               },
-            );
-
-          } else if (snapshot.hasError) {
-            return Text("${snapshot.error}");
-          }
-          return const CircularProgressIndicator();
-        },
+            ),
+          ),
+        ],
       ),
 
     );

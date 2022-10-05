@@ -24,6 +24,8 @@ dependencies:
   json_annotation:
   dio:
   logger:
+  salomon_bottom_bar:
+  image_picker:
 
 dev_dependencies:
   flutter_test:
