@@ -75,6 +75,7 @@ var selectedFileCount=0.obs;
       }
       // send request to api
       final response = await DioClient.dio.post('http://localhost:8000/api/upload', data: formData);
+      // check if response is success
          if(response.statusCode ==200) {
            Get.snackbar('Success', 'Images uploaded successfully',snackPosition: SnackPosition.TOP,backgroundColor: Colors.green);
          } else {
@@ -85,6 +86,28 @@ var selectedFileCount=0.obs;
      print(e);
    }
   }
+// upload image
+void uploadImage() async {
+  if (selectedFileCount.value > 0) {
+    // upload images to api
+    Get.dialog(const Center(child: CircularProgressIndicator()),
+        barrierDismissible: false);
+    await UploadImages().then((resp) {
+      Get.back();
+      Get.snackbar('Success', 'Images uploaded successfully',snackPosition: SnackPosition.TOP,backgroundColor: Colors.green);
+    }).catchError((e) {
+      Get.back();
+      Get.snackbar('Sorry', 'Something went wrong',snackPosition: SnackPosition.TOP,backgroundColor: Colors.red);
+    });
+    Get.back();
+
+
+  } else {
+    Get.snackbar('Sorry', 'Select some images to upload',
+        snackPosition: SnackPosition.TOP, backgroundColor: Colors.red);
+  }
+}
+
 
 
 
