@@ -29,6 +29,7 @@ class ProductController extends GetxController {
               .toList());
       //logger.i(productList);
 
+
     } on DioError catch (e) {
       // The request was made and the server responded with a status code
       // that falls out of the range of 2xx and is also not 304.
