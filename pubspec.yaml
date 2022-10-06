@@ -26,6 +26,7 @@ dependencies:
   logger:
   salomon_bottom_bar:
   image_picker:
+  provider:
 
 dev_dependencies:
   flutter_test:
