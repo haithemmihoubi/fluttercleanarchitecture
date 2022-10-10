@@ -24,4 +24,13 @@ class MyApp extends StatelessWidget {
 
     );
   }
+  // function that revrse string
+  String reverseString(String str) {
+    String newString = '';
+    for (int i = str.length - 1; i >= 0; i--) {
+      newString += str[i];
+    }
+    return newString;
+  }
+
 }

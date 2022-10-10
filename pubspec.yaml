@@ -27,11 +27,14 @@ dependencies:
   salomon_bottom_bar:
   image_picker:
   provider:
+  test:
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
+  integration_test:
+    sdk: flutter
+  mocktail:
 
   flutter_lints: ^2.0.0
   build_runner:
