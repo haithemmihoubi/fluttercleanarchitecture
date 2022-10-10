@@ -16,8 +16,10 @@ void main() {
   test('list of products must  be empty ', () =>{
     expect(productController.productList.length, 0)
   });
-  test('Product list must be filled with products', () =>  {
-    expect(products, isNot(0))
+  test('Product list must be filled with products', () {
+    ProductController productController = ProductController();
+    var products = productController.getAllProducts();
+    expect(products, isNot(0));
   });
 
 }
