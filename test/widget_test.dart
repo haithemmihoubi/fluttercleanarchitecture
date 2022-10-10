@@ -12,14 +12,25 @@ void main() {
     expect(MyApp().reverseString('hello'), 'olleh')
   });
 
-
+// test thg elist opf products must be empty when it ssis sinitialiozed
   test('list of products must  be empty ', () =>{
     expect(productController.productList.length, 0)
   });
-  test('Product list must be filled with products', () {
+  // testing the product  list
+    test('Product list must be filled with products', () {
     ProductController productController = ProductController();
     var products = productController.getAllProducts();
     expect(products, isNot(0));
   });
+//  testing getting the gettting the categories
+  test('categories list must be filled with  all the categories', () {
+    ProductController productController = ProductController();
+    var products = productController.getAllCategories();
+    expect(products, isNot(0));
+  });
+
+
+
+
 
 }
