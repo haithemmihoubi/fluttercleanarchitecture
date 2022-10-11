@@ -1,8 +1,12 @@
+
 import 'package:cleanarchitecture/features/product/presentation/controller/product_controller.dart';
+import 'package:cleanarchitecture/features/product/presentation/screen/products_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:cleanarchitecture/main.dart';
+import 'package:get/get.dart';
+import 'package:get_test/get_test.dart';
 import 'package:logger/logger.dart';
 
 void main() {
@@ -12,7 +16,7 @@ void main() {
     expect(MyApp().reverseString('hello'), 'olleh')
   });
 
-// test thg elist opf products must be empty when it ssis sinitialiozed
+// test the list of products must be empty when it intialized
   test('list of products must  be empty ', () =>{
     expect(productController.productList.length, 0)
   });
@@ -29,6 +33,13 @@ void main() {
     expect(products, isNot(0));
   });
 
+
+// test widget function
+// testing getx controller
+  testWidgets('testing getx controller ad pproduct list must be filled with product model',
+          (WidgetTester tester) async {
+   
+  });
 
 
 
